@@ -1,0 +1,124 @@
+.orders {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin: auto;
+  width: 40rem;
+  max-width: 90%;
+  align-items: center;
+}
+
+.orders__item a {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.orders__item {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.orders__products {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.orders__products-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin-bottom: 1rem;
+}
+
+.orders__products-item h1,
+.orders__products-item h2,
+.orders__products-item img {
+  width: 8rem;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .orders__products-item h1,
+  .orders__products-item h2,
+  .orders__products-item img {
+    width: 7rem;
+    margin-right: 0.7rem;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  .orders {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin: auto;
+    width: 90rem;
+    max-width: 90%;
+  }
+
+  .orders__products-item {
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin-bottom: 1rem; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin-bottom: 1rem;
+  }
+
+  .orders__products-item h1,
+  .orders__products-item h2,
+  .orders__products-item img {
+    width: 5rem;
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 3px;
+  }
+}
+
+@media (max-width: 420px) {
+  .orders {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin: auto;
+    width: 70rem;
+    max-width: 80%;
+  }
+
+  .orders__products-item {
+    display: block;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-around;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin-bottom: 1rem;
+  }
+
+  .orders__products-item h1,
+  .orders__products-item h2,
+  .orders__products-item img {
+    width: 5rem;
+    font-size: 0.8rem;
+    margin: auto;
+    padding: 3px;
+    text-align: center;
+  }
+}

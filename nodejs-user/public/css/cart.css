@@ -1,0 +1,120 @@
+/*.cart__item img {
+  width: 10rem;
+  <img src="<%= p.productId.imageUrl %>" alt="<%= p.productId.title %>">
+}*/
+
+.cart__item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin: auto;
+  width: 40rem;
+  max-width: 90%;
+}
+
+.cart__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin-bottom: 1rem;
+}
+
+img {
+  height: 130px;
+}
+
+.cart__item h1,
+.cart__item h2,
+.cart__item img {
+  width: 8rem;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  img {
+    height: 100px;
+  }
+
+  .cart__item h1,
+  .cart__item h2,
+  .cart__item img {
+    width: 7rem;
+    margin-right: 0.7rem;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+}
+
+@media (max-width: 575px) {
+  img {
+    height: 80px;
+  }
+
+  .cart__item-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin: auto;
+    width: 90rem;
+    max-width: 90%;
+  }
+
+  .cart__item {
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin-bottom: 1rem; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin-bottom: 1rem;
+  }
+
+  .cart__item h1,
+  .cart__item h2,
+  .cart__item img {
+    width: 5rem;
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 3px;
+  }
+}
+
+@media (max-width: 460px) {
+  .cart__item-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin: auto;
+    width: 35rem;
+    max-width: 45%;
+  }
+
+  .cart__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin-bottom: 1rem;
+  }
+
+  .cart__item h1,
+  .cart__item h2,
+  .cart__item img {
+    width: 5rem;
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 3px;
+  }
+}

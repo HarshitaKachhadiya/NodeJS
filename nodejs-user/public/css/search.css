@@ -1,0 +1,40 @@
+nav div .demo {
+    display: flex;
+    height: 38px;
+    width: 15rem;
+    border-radius: 20px;
+    padding: 2px;
+    min-width: 18%!important;
+    border: 2px solid #00695c;
+    position: relative;
+}
+
+nav div .demo .search {
+    height: 100%;
+    width: 100%;
+    padding: 0 10px;
+    font-weight: 500;
+    background: #fff;
+    border: none;
+    font-size: 12px;
+    border-radius: 20px;
+}
+
+nav div .demo .search:focus {
+    outline: none;
+}
+
+nav div .demo button {
+    height: 85%;
+    position: absolute;
+    display: grid;
+    place-items: center;
+    right: 0.2rem;
+    padding: 10px;
+    background: #ffeb3b;
+    border: none;
+    cursor: pointer;
+    font-size: 10px;
+    color: #fff;
+    border-radius: 20px;
+}
