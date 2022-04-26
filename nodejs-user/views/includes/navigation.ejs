@@ -1,0 +1,150 @@
+<%- include('./head.ejs') %>
+<link rel="stylesheet" href="/css/search.css">
+<style>
+   .logo {
+    width: 40px; 
+    height: 40px; 
+    border-radius: 20px;
+   }
+
+   .logo1 {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 20px;
+   }
+
+   @media (max-width: 1085px) {
+    .logo {
+       display: none;
+     }
+   }
+</style>
+<div class="backdrop"></div>
+<header class="main-header">
+  <a id="side-menu-toggle"><i class="fas fa-bars"></i></a>
+  <img src="/logo.png" alt="logo" class="logo">
+  <nav class="main-header__nav">
+    <ul class="main-header__item-list">
+      <!-- <li class="main-header__item">
+        <img src="logo.png" alt="logo" style="width: 40px; height: 40px; border-radius: 20px;"> -->
+        <!-- <a style="color: white;"><i class="fas fa-shopping-cart fa-lg"></i></a> -->
+      <!-- </li> -->
+      <li class="main-header__item">
+        <a class="<%= path === '/' ? 'active' : '' %>" href="/">Home</a>
+      </li>
+      <li class="main-header__item">
+        <a class="<%= path === '/shop' ? 'active' : '' %>" href="/shop">Shop</a>
+      </li>
+      <!-- <li class="main-header__item">
+        <a class="<%= path === '/products' ? 'active' : '' %>" href="/products"
+          >Products</a
+        >
+      </li> -->
+      <% if (isAuthenticated) { %>
+      <li class="main-header__item">
+        <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
+      </li>
+      <li class="main-header__item">
+        <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
+      </li>
+      <li class="main-header__item">
+        <a class="<%= path === '/about' ? 'active' : '' %>" href="/about">About</a>
+      </li>
+      <li class="main-header__item">
+        <a  class="<%= path === '/contact' ? 'active' : '' %>" href="/contact">Contact</a>
+      </li>
+      <li class="main-header__item">
+        <a class="<%= path === '/feedback' ? 'active' : '' %>" href="/feedback">Feedback</a>
+      </li>
+      <% } %>
+    </ul>
+    <div>
+      <form class="demo" action="/search" method="get">
+        <input type="text" name="search" id="search" class="search" placeholder="search" />
+        <button type="submit" class="fas fa-search"></button>
+      </form>
+    </div>
+    <ul class="main-header__item-list">
+      <% if (!isAuthenticated) { %>
+      <li class="main-header__item">
+        <a class="<%= path === '/login' ? 'active' : '' %>" href="/login"
+          >Login</a
+        >
+      </li>
+      <li class="main-header__item">
+        <a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup"
+          >Signup</a
+        >
+      </li>
+      <% } else { %>
+      <li class="main-header__item">
+        <form action="/logout" method="post">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <button type="submit">Logout</button>
+        </form>
+      </li>
+      <% } %>
+    </ul>
+  </nav>
+</header>
+
+<nav class="mobile-nav">
+  <ul class="mobile-nav__item-list">
+    <a style="margin-left: 45px;"><img src="/logo.png" alt="logo" class="logo1"></a>
+    <!-- <a style="margin-left: 50px; color: black;"><i class="fas fa-shopping-cart fa-2x"></i></a> -->
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/' ? 'active' : '' %>" href="/">Home</a>
+    </li>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/shop' ? 'active' : '' %>" href="/shop">Shop</a>
+    </li>
+    <!-- <li class="mobile-nav__item">
+      <a class="<%= path === '/products' ? 'active' : '' %>" href="/products"
+        >Products</a
+      >
+    </li> -->
+    <% if (isAuthenticated) { %>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
+    </li>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders"
+        >Orders</a
+      >
+    </li>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/about' ? 'active' : '' %>" href="/about">About</a>
+    </li>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/contact' ? 'active' : '' %>" href="/contact">Contact</a>
+    </li>
+    <li class="mobile-nav__item">
+      <a  class="<%= path === '/feedback' ? 'active' : '' %>" href="/feedback">Feedback</a>
+    </li>
+    <% } %> <% if (!isAuthenticated) { %>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/login' ? 'active' : '' %>" href="/login"
+        >Login</a
+      >
+    </li>
+    <li class="mobile-nav__item">
+      <a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup"
+        >Signup</a
+      >
+    </li>
+    <% } else { %>
+    <li class="mobile-nav__item">
+      <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+        <button type="submit">Logout</button>
+      </form>
+    </li>
+    <% } %>
+  </ul>
+  <div>
+    <form class="demo" action="/search" method="get">
+      <input type="text" name="search" id="search" class="search" placeholder="search" />
+      <button type="submit" class="fas fa-search"></button>
+    </form>
+  </div>
+</nav>

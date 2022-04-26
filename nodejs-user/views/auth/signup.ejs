@@ -1,0 +1,80 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <% if (errorMessage) { %>
+            <div class="user-message user-message--error"><%= errorMessage %></div>
+        <% } %>
+        <form class="login-form" action="/signup" method="POST" novalidate>
+            <div class="form-control">
+                <label for="name">Name</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'name') ? 'invalid' : '' %>"
+                    type="text" 
+                    name="name" 
+                    id="name"
+                    value="<%= oldInput.name %>" >
+            </div>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'email') ? 'invalid' : '' %>"
+                    type="email" 
+                    name="email" 
+                    id="email" 
+                    value="<%= oldInput.email %>">
+            </div>
+            <div class="form-control">
+                <label for="password">Password</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %>"
+                    type="password" 
+                    name="password" 
+                    id="password" 
+                    value="<%= oldInput.password %>">
+            </div>
+            <div class="form-control">
+                <label for="confirmPassword">Confirm Password</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'confirmPassword') ? 'invalid' : '' %>"
+                    type="password" 
+                    name="confirmPassword" 
+                    id="confirmPassword" 
+                    value="<%= oldInput.confirmPassword %>">
+            </div>
+            <div class="form-control">
+                <label for="phoneno">Phoneno</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'phoneno') ? 'invalid' : '' %>"
+                    type="number" 
+                    name="phoneno" 
+                    id="phoneno" 
+                    value="<%= oldInput.phoneno %>">
+            </div>
+            <div class="form-control">
+                <label for="address">Address</label>
+                <textarea 
+                    class="<%= validationErrors.find(e => e.param === 'address') ? 'invalid' : '' %>"
+                    name="address" 
+                    id="address" 
+                    rows="5"><%= oldInput.address %></textarea>
+            </div>
+            <div class="form-control">
+                <label for="pincode">Pincode</label>
+                <input 
+                    class="<%= validationErrors.find(e => e.param === 'pincode') ? 'invalid' : '' %>"
+                    type="number" 
+                    name="pincode" 
+                    id="pincode" 
+                    value="<%= oldInput.pincode %>">
+            </div>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button type="submit">Signup</button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>

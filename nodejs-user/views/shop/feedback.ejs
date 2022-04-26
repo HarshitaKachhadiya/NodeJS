@@ -1,0 +1,48 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/feedback.css">
+<style>
+    .message {
+      margin: auto;
+      border: 1px solid #4771fa;
+      padding: 0.5rem;
+      border-radius: 3px;
+      background: #b9c9ff;
+      text-align: center;
+    }
+    
+    .message--error {
+      border-color: red;
+      background: rgb(255, 176, 176);
+      color: red;
+      margin-bottom: 16px;
+    }
+  
+    .invalid {
+        border-color: red;
+    }
+  </style>
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <div class="feed">
+        <div class="contact-box">
+        <div class="left"></div>
+                <div class="right">
+                    <h2>Feedback</h2>
+                    <% if (errorMessage) { %>
+                        <div class="message message--error"><%= errorMessage %></div>
+                    <% } %>
+                    <form action="/feedback" method="POST" novalidate>
+                    <input type="text" class="<%= validationErrors.find(e => e.param === 'fname') ? 'field invalid' : 'field' %>" name="fname" id="fname" placeholder="Enter Your Name" value="<% if (hasError) { %><%= feedback.fname %><% } %>">
+                    <input type="email" class="<%= validationErrors.find(e => e.param === 'email') ? 'field invalid' : 'field' %>" placeholder="Enter Your Email" name="email" id="email" value="<% if (hasError) { %><%= feedback.email %><% } %>">
+                    <input type="number" class="<%= validationErrors.find(e => e.param === 'phoneno') ? 'field invalid' : 'field' %>" placeholder="Enter Your Phoneno" name="phoneno" id="phoneno" value="<% if (hasError) { %><%= feedback.phoneno %><% } %>">
+                    <textarea placeholder="Enter Your Message" class="<%= validationErrors.find(e => e.param === 'message') ? 'field invalid' : 'field' %>" name="message" id="message"><% if (hasError) { %><%= feedback.message %><% } %></textarea>
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+<%- include('../includes/footer.ejs') %>
+<%- include('../includes/end.ejs') %>
