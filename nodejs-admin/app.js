@@ -138,3 +138,13 @@ mongoose
     console.log(err);
   });
 
+//git clone
+//git add .
+//git commit -m "commit message"
+//git push origin <branch name>
+//git pull origin <branch name>
+//git branch
+//git branch <new branch name>
+//git checkout <branch name>
+//git checkout -b <branch name>
+//git status
